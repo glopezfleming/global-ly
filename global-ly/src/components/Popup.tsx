@@ -14,7 +14,7 @@ interface Artist {
 interface Props {
   trigger: boolean;
   setTrigger: (trigger2: boolean) => void;
-  imageSrc?: string; //add image as an optional prop
+  imageSrc?: string;
   artist: Artist;
 }
 

@@ -13,24 +13,18 @@ interface Artist {
   photoURL: string;
 }
 
-//hard code in list
-//get rid of child element in popup
-//add it in as a prop in popup component
-//thus i need to edit popup component line in main app.tsx file
-//List will contain [{Artist name}, {Artist Hometown}, {image link}, {tweetID 1}, {tweetID 2}, {tweetID 3}]
 function App() {
   const [randomArtist, setRandomArtist] = useState<Artist | null>(null);
 
   useEffect(() => {
     fetchData();
-  }, []); // Empty dependency array ensures that the effect runs only once on component mount
+  }, []);
 
   const fetchData = async () => {
     try {
       const response = await fetch("https://sheetdb.io/api/v1/ltzkg4ybfkue2");
       const data: Artist[] = await response.json();
 
-      // Randomly select one object from the array
       const randomIndex = Math.floor(Math.random() * data.length);
       const selectedObject = data[randomIndex];
 
